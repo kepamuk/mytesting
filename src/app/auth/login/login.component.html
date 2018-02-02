@@ -1,25 +1,41 @@
 <p class="text-xs-center">Войдите для работы</p>
-<form>
-  <div class="form-group">
+<form [formGroup]="form"
+      (ngSubmit)="onSubmit()">
+  <div class="form-group"
+       [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}">
     <label for="email">Email</label>
     <input
             type="text"
             class="form-control underlined"
             id="email"
             placeholder="Введите ваш email"
+            [formControlName]="'email'"
     >
+    <span *ngIf="form.get('email').invalid && form.get('email').touched">
+      <span *ngIf="form.get('email')['errors']['required']">Email is required</span>
+      <span *ngIf="form.get('email')['errors']['email']">Email is not valid</span>
+    </span>
   </div>
-  <div class="form-group">
+  <div class="form-group"
+       [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}">
     <label for="password">Пароль</label>
     <input
             type="password"
             class="form-control underlined"
             id="password"
             placeholder="Пароль"
+            [formControlName]="'password'"
     >
+    <span *ngIf="form.get('password').invalid && form.get('password').touched">
+      <span *ngIf="form.get('password')['errors']['required']">Password is required</span>
+      <span *ngIf="form.get('password')['errors']['minlength']">Password length is {{form.get('password')['errors']['minlength']['actualLength']}}. Required {{form.get('password')['errors']['minlength']['requiredLength']}}.</span>
+    </span>
   </div>
   <div class="form-group">
-    <button type="submit" class="btn btn-block btn-primary">Войти</button>
+    <button type="submit"
+            class="btn btn-block btn-primary"
+            [disabled]="form.invalid">Войти
+    </button>
   </div>
   <div class="form-group">
     <p class="text-muted text-xs-center">
