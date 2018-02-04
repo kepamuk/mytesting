@@ -8,6 +8,7 @@ import {AuthRoutingModule} from './auth-routing.module';
 import {SharedModule} from '../shared/shared.module';
 import {UsersService} from '../shared/services/users.service';
 import {HttpClientModule} from '@angular/common/http';
+import {LoginService} from '../shared/services/login.service';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   providers: [
     UsersService,
+    LoginService,
     HttpClientModule
   ]
 })
