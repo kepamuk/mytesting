@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UsersService} from '../../shared/services/users.service';
 import {Message} from '../../shared/model/message.model';
+import {LoginService} from '../../shared/services/login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,9 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   message: Message;
 
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UsersService,
+              private loginService: LoginService,
+              private router: Router) {
 
   }
 
@@ -28,7 +32,7 @@ export class LoginComponent implements OnInit {
   private showMessage(text: string, type: string = 'danger') {
     this.message = new Message(type, text);
     window.setTimeout(() => {
-      this.message = new Message(type, '');
+      this.message.text = '';
     }, 3000);
   }
 
@@ -38,7 +42,10 @@ export class LoginComponent implements OnInit {
       .subscribe((user) => {
         if (user) {
           if (user.password === values.password) {
-            console.log(true);
+            this.message.text = '';
+            localStorage.setItem('user', JSON.stringify(user));
+            this.loginService.login();
+            // this.router.navigate(['']);
           } else {
             this.showMessage('no pass');
           }
