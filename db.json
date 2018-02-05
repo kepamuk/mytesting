@@ -7,28 +7,10 @@
       "name": "Администратор"
     },
     {
-      "email": "stas@stas.ru",
+      "email": "wfm@mail.ru",
       "password": "12345678",
       "name": "stas",
       "id": 2
-    },
-    {
-      "email": "stas@stas.ru",
-      "password": "12345678",
-      "name": "stas",
-      "id": 3
-    },
-    {
-      "email": "stas@stas.ru",
-      "password": "12345678",
-      "name": "stas",
-      "id": 4
-    },
-    {
-      "email": "stas@stas.ru",
-      "password": "12345678",
-      "name": "stas",
-      "id": 5
     }
   ],
   "bill": {
