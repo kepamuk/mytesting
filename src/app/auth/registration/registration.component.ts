@@ -3,8 +3,6 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../shared/model/user.model';
 import {UsersService} from '../../shared/services/users.service';
 import {Router} from '@angular/router';
-import {promise} from 'selenium-webdriver';
-import {reject} from 'q';
 
 @Component({
   selector: 'app-registration',
