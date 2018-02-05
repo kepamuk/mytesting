@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
             this.message.text = '';
             localStorage.setItem('user', JSON.stringify(user));
             this.loginService.login();
-            // this.router.navigate(['']);
+            this.router.navigate(['/system', 'bill']);
           } else {
             this.showMessage('no pass');
           }

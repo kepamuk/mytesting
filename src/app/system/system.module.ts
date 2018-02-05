@@ -7,6 +7,7 @@ import {PlanningPageComponent} from './planning-page/planning-page.component';
 import {RecordsPageComponent} from './records-page/records-page.component';
 import {SystemRoutingModule} from './system-routing.module';
 import {SystemComponent} from './system.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {SystemComponent} from './system.component';
     BillPageComponent,
     HistoryPageComponent,
     PlanningPageComponent,
-    RecordsPageComponent
+    RecordsPageComponent,
+    NavbarComponent
   ]
 })
 export class SystemModule {
