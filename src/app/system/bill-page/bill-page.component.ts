@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
+import {Subscription} from 'rxjs/Subscription';
 
 import {BillService} from '../shared/services/bill.service';
 import {Bill} from '../shared/models/bill.model';
-import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-bill-page',
@@ -28,7 +28,7 @@ export class BillPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.ngOnDestroy();
+    this.sub.unsubscribe();
   }
 
 }
