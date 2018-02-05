@@ -8,6 +8,8 @@ import {RecordsPageComponent} from './records-page/records-page.component';
 import {SystemRoutingModule} from './system-routing.module';
 import {SystemComponent} from './system.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { OpenDirective } from './shared/directives/open.directive';
 
 @NgModule({
   imports: [
@@ -20,7 +22,9 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
     HistoryPageComponent,
     PlanningPageComponent,
     RecordsPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    HeaderComponent,
+    OpenDirective
   ]
 })
 export class SystemModule {
