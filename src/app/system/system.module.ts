@@ -10,6 +10,9 @@ import {SystemComponent} from './system.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { OpenDirective } from './shared/directives/open.directive';
+import { BillCardComponent } from './bill-page/bill-card/bill-card.component';
+import { CurrencyCardComponent } from './bill-page/currency-card/currency-card.component';
+import {BillService} from './shared/services/bill.service';
 
 @NgModule({
   imports: [
@@ -24,7 +27,12 @@ import { OpenDirective } from './shared/directives/open.directive';
     RecordsPageComponent,
     NavbarComponent,
     HeaderComponent,
-    OpenDirective
+    OpenDirective,
+    BillCardComponent,
+    CurrencyCardComponent
+  ],
+  providers: [
+    BillService
   ]
 })
 export class SystemModule {
