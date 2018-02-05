@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UsersService} from '../../shared/services/users.service';
 import {Message} from '../../shared/model/message.model';
 import {LoginService} from '../../shared/services/login.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,12 +17,24 @@ export class LoginComponent implements OnInit {
 
   constructor(private usersService: UsersService,
               private loginService: LoginService,
-              private router: Router) {
+              private router: Router,
+              private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
-    this.message = new Message('danger', '');
+
+    this.message = new Message('', '');
+
+    this.route.queryParams
+      .subscribe((params: Params) => {
+        if (params['nowCanLogin']) {
+          this.showMessage('you can enter', 'success');
+
+          this.router.navigateByUrl(this.router.url.substring(0, this.router.url.indexOf('?')));
+        }
+      });
+
     this.form = new FormGroup({
       email: new FormControl('wfm@mail.ru', [Validators.required, Validators.email]),
       password: new FormControl('12345678', [Validators.required, Validators.minLength(6)])
