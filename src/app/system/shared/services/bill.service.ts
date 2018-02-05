@@ -3,18 +3,17 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 
 import {Bill} from '../models/bill.model';
+import {BaseApi} from '../../../shared/core/base-api';
 
 @Injectable()
-export class BillService {
+export class BillService extends BaseApi {
 
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
+    super(http);
   }
 
   getBill(): Observable<Bill> {
-    return this.http.get('http://localhost:3000/bill')
-      .map((response: Bill) => {
-        return response;
-      });
+    return this.get('bill');
   }
 
   getCurrency(base: string = 'RUB'): Observable<any> {
