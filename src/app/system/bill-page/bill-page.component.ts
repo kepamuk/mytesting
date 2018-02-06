@@ -29,9 +29,9 @@ export class BillPageComponent implements OnInit, OnDestroy {
       this.billService.getBill(),
       this.billService.getCurrency()
     ).subscribe((data: [Bill, any]) => {
-      this.isLoaded = true;
       this.bill = data[0];
       this.currency = data[1];
+      this.isLoaded = true;
     });
   }
 
@@ -39,8 +39,8 @@ export class BillPageComponent implements OnInit, OnDestroy {
     this.isLoaded = false;
     this.sub1 = this.billService.getCurrency()
       .subscribe((data: any) => {
-        this.isLoaded = true;
         this.currency = data;
+        this.isLoaded = true;
       });
   }
 
