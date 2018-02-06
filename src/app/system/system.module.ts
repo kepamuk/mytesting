@@ -17,11 +17,14 @@ import {DateMomentPipe} from './shared/pipes/date-moment.pipe';
 import { AddCategoryComponent } from './records-page/add-category/add-category.component';
 import { AddEventComponent } from './records-page/add-event/add-event.component';
 import { EditCategoryComponent } from './records-page/edit-category/edit-category.component';
+import {FormsModule} from '@angular/forms';
+import {CategoriesService} from './shared/services/categories.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    SystemRoutingModule
+    SystemRoutingModule,
+    FormsModule
   ],
   declarations: [
     SystemComponent,
@@ -40,7 +43,8 @@ import { EditCategoryComponent } from './records-page/edit-category/edit-categor
     EditCategoryComponent
   ],
   providers: [
-    BillService
+    BillService,
+    CategoriesService
   ]
 })
 export class SystemModule {
