@@ -25,7 +25,7 @@ export class BaseApi {
   }
 
   put(link, data): Observable<any> {
-    return this.http.post(this.concatUrl(link), data)
+    return this.http.put(this.concatUrl(link), data)
       .map((response: any) => response);
   }
 

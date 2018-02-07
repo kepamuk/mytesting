@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BaseApi} from '../../../shared/core/base-api';
 import {HttpClient} from '@angular/common/http';
+import {Category} from '../models/category.model';
 
 @Injectable()
 export class CategoriesService extends BaseApi {
@@ -9,7 +10,15 @@ export class CategoriesService extends BaseApi {
     super(http);
   }
 
-  addCategory(categories) {
+  getCategories() {
+    return this.get('categories');
+  }
+
+  addCategory(categories: Category) {
     return this.post('categories', categories);
+  }
+
+  updateCategory(category: Category) {
+    return this.put(`categories/${category.id}`, category);
   }
 }
