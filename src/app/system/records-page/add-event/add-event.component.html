@@ -5,36 +5,64 @@
     </div>
   </div>
   <div class="card-block">
-    <form>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div class="form-group">
         <label class="control-label" for="category">Выберите категорию</label>
-        <select class="form-control" id="category">
-          <option>Option one</option>
-          <option>Option two</option>
-          <option>Option three</option>
-          <option>Option four</option>
+        <select class="form-control"
+                id="category"
+                name="category"
+                ngModel="1"
+                required>
+          <option *ngFor="let c of categories"
+                  value="{{c.id}}">{{c.name}}
+          </option>
         </select>
       </div>
       <div class="form-group">
         <label class="control-label">Выберите тип</label>
-        <div>
+
+        <div *ngFor="let t of type">
           <label>
-            <input class="radio" name="radios" type="radio">
-            <span>Доход</span>
+            <input class="radio"
+                   name="type"
+                   type="radio"
+                   value="{{t.type}}"
+                   ngModel
+                   required>
+            <span>{{t.label}}</span>
           </label>
         </div>
-        <div>
-          <label>
-            <input class="radio" name="radios" type="radio" checked>
-            <span>Расход</span>
-          </label>
-        </div>
+
       </div>
-      <div class="form-group">
+      <div class="form-group"
+           [ngClass]="{'has-error': amount.touched && amount.invalid}">
         <label class="control-label" for="amount">Введите сумму</label>
-        <input type="number" value="0" id="amount" class="form-control">
+        <input type="number"
+               id="amount"
+               name="amount"
+               #amount="ngModel"
+               class="form-control"
+               required
+               min="1"
+               ngModel="1">
+        <div *ngIf="amount.touched && amount.invalid">Required</div>
       </div>
-      <button type="submit" class="btn btn-primary">Добавить</button>
+      <div class="form-group"
+           [ngClass]="{'has-error': description.touched && description.invalid}">
+        <label class="control-label" for="amount">Введите описание</label>
+        <input type="text"
+               id="description"
+               name="description"
+               #description="ngModel"
+               class="form-control"
+               required
+               ngModel="test">
+        <div *ngIf="description.touched && description.invalid">Required</div>
+      </div>
+      <button type="submit"
+              class="btn btn-primary"
+              [disabled]="f.invalid">Добавить
+      </button>
     </form>
   </div>
 </div>
