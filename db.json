@@ -8,7 +8,7 @@
     }
   ],
   "bill": {
-    "value": 100000,
+    "value": 135000,
     "currency": "RUB"
   },
   "categories": [
@@ -28,8 +28,8 @@
       "capacity": 7000
     },
     {
-      "name": "vava",
-      "capacity": 43344,
+      "name": "testing",
+      "capacity": 50000,
       "id": 4
     }
   ],
@@ -73,6 +73,22 @@
       "date": "10.06.2017 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
+    },
+    {
+      "type": "outcome",
+      "amount": 5000,
+      "category": "4",
+      "date": "09.02.2018 12:02:60",
+      "description": "na kotov",
+      "id": 6
+    },
+    {
+      "type": "income",
+      "amount": 45000,
+      "category": "1",
+      "date": "09.02.2018 12:02:51",
+      "description": "picot",
+      "id": 7
     }
   ]
 }
