@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {BaseApi} from '../../../shared/core/base-api';
 import {HttpClient} from '@angular/common/http';
 import {Category} from '../models/category.model';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class CategoriesService extends BaseApi {
@@ -10,7 +11,7 @@ export class CategoriesService extends BaseApi {
     super(http);
   }
 
-  getCategories() {
+  getCategories(): Observable<any> {
     return this.get('categories');
   }
 

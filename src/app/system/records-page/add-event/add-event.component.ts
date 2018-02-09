@@ -42,7 +42,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
     const event = new WFMEvent(
       type,
       amount,
-      category,
+      +category,
       moment().format('DD.MM.YYYY HH:MM:SS'),
       description
     );
