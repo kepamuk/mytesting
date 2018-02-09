@@ -1,11 +1,9 @@
 export class WFMEvent {
-  constructor(
-    private type: string,
-    private amount: number,
-    private category: number,
-    private date: string,
-    private description: string,
-    private id?: number,
-  ) {
+  constructor(public type: string,
+              public amount: number,
+              public category: number,
+              public date: string,
+              public description: string,
+              public id?: number) {
   }
 }
