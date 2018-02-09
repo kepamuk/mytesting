@@ -8,8 +8,6 @@ import {BaseApi} from '../../../shared/core/base-api';
 @Injectable()
 export class BillService extends BaseApi {
 
-
-
   constructor(public http: HttpClient) {
     super(http);
   }
@@ -23,6 +21,10 @@ export class BillService extends BaseApi {
       .map((response: any) => {
         return response;
       });
+  }
+
+  updateBill(bill: Bill): Observable<Bill> {
+    return this.put('bill', bill);
   }
 
 }
