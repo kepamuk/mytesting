@@ -4,8 +4,15 @@
   </h3>
 </div>
 
-<app-history-chart></app-history-chart>
+<div *ngIf="!isLoading">
+  Loading ...
+</div>
 
-<app-history-events></app-history-events>
+<div *ngIf="isLoading">
+  <app-history-chart [dataChart]="outcomeAll"></app-history-chart>
 
-<app-history-filter></app-history-filter>
+  <app-history-events [category]="category"
+                      [event]="event"></app-history-events>
+
+  <app-history-filter></app-history-filter>
+</div>

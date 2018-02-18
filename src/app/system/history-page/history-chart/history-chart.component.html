@@ -1,5 +1,4 @@
-<section class="section"
-*ngIf="isLoading">
+<section class="section">
   <div class="row">
     <div class="col-md-12">
       <div class="card">
@@ -8,7 +7,7 @@
             <div id="morris-donut-chart">
               <ngx-charts-pie-chart
                       [view]="view"
-                      [results]="outcomeAll"
+                      [results]="dataChart"
                       [explodeSlices]="explodeSlices"
                       [labels]="showLabels"
                       [doughnut]="true">

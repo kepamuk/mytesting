@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-history-events',
@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryEventsComponent implements OnInit {
 
-  constructor() { }
+  @Input() category;
+  @Input() event;
 
-  ngOnInit() {
+  constructor() {
   }
 
+  ngOnInit() {
+    this.event.forEach((e) => {
+      e.catName = this.category.find((c) => c.id === e.category).name;
+    });
+  }
+
+  getTypeClass(type) {
+    return [
+      'label',
+      (type === 'outcome') ? 'label-danger' : 'label-success'
+    ];
+  }
 }
