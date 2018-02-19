@@ -8,18 +8,23 @@
           </div>
           <div class="form-inline pull-right m-r-2">
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Поиск...">
+              <input type="text"
+                     class="form-control"
+                     [placeholder]="placeholderFilter"
+                     [(ngModel)]="searchValue"
+                     name="searchValue">
             </div>
-            <div class="btn-group">
-              <button type="button" class="btn btn-secondary dropdown-toggle ">
+            <div appOpen
+                 class="btn-group">
+              <button type="button"
+                      class="btn btn-secondary dropdown-toggle">
                 Параметр
               </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+                <a class="dropdown-item" (click)="onChangeFilter($event,'amount')">Сумма</a>
+                <a class="dropdown-item" (click)="onChangeFilter($event,'date')">Дата</a>
+                <a class="dropdown-item" (click)="onChangeFilter($event,'catName')">Категория</a>
+                <a class="dropdown-item" (click)="onChangeFilter($event,'type')">Тип</a>
               </div>
             </div>
           </div>
@@ -37,7 +42,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let e of event; let i = index">
+            <tr *ngFor="let e of event | filter:searchValue:searchType; let i = index">
               <th scope="row">{{i + 1}}</th>
               <td>{{e.amount | number: '1.2'}}</td>
               <td>{{e.date | dateMoment}}</td>
@@ -46,7 +51,7 @@
                 <span [ngClass]="getTypeClass(e.type)">{{(e.type === 'outcome') ? 'Расход' : 'Доход'}}</span>
               </td>
               <td class="text-lg-center">
-                <a [routerLink]="['system/history', e.id]"
+                <a [routerLink]="['/system/history', e.id]"
                    class="btn btn-primary-outline">Открыть</a>
               </td>
             </tr>
