@@ -27,6 +27,7 @@ import {HistoryFilterComponent} from './history-page/history-filter/history-filt
 import {SharedModule} from '../shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import {BrowserModule} from '@angular/platform-browser';
     HistoryChartComponent,
     HistoryDetailComponent,
     HistoryEventsComponent,
-    HistoryFilterComponent
+    HistoryFilterComponent,
+    FilterPipe
   ],
   providers: [
     BillService,

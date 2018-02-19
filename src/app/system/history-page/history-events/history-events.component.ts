@@ -10,6 +10,10 @@ export class HistoryEventsComponent implements OnInit {
   @Input() category;
   @Input() event;
 
+  searchValue: string;
+  searchType = 'amount';
+  placeholderFilter = 'Сумма';
+
   constructor() {
   }
 
@@ -24,5 +28,10 @@ export class HistoryEventsComponent implements OnInit {
       'label',
       (type === 'outcome') ? 'label-danger' : 'label-success'
     ];
+  }
+
+  onChangeFilter(event, type) {
+    this.searchType = type;
+    this.placeholderFilter = event.target.innerHTML;
   }
 }
