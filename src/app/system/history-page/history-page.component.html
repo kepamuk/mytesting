@@ -22,5 +22,6 @@
 </div>
 
 <div *ngIf="openModal">
-  <app-history-filter (closeModal)="onCloseModal()" (resArrays)="getArrays($event)"></app-history-filter>
+  <app-history-filter (closeModal)="onCloseModal()"
+                      (resArrays)="getArrays($event)"></app-history-filter>
 </div>
