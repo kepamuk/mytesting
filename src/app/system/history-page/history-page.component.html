@@ -2,6 +2,12 @@
   <h3 class="title">
     Страница истории <span class="sparkline bar"></span>
   </h3>
+  <div class="pull-right">
+    <button class="btn-sm btn btn-primary-outline"
+            (click)="onModal()">
+      <i class="fa fa-refresh"></i>
+    </button>
+  </div>
 </div>
 
 <div *ngIf="!isLoading">
@@ -13,6 +19,8 @@
 
   <app-history-events [category]="category"
                       [event]="event"></app-history-events>
+</div>
 
-  <app-history-filter></app-history-filter>
+<div *ngIf="openModal">
+  <app-history-filter (closeModal)="onCloseModal()" (resArrays)="getArrays($event)"></app-history-filter>
 </div>
