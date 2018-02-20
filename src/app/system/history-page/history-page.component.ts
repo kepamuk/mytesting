@@ -23,6 +23,8 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
 
   sub: Subscription;
 
+  openModal = true;
+
   constructor(private categoriesService: CategoriesService,
               private eventsService: EventsService) {
 
@@ -57,6 +59,18 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
       });
 
     });
+  }
+
+  onModal() {
+    this.openModal = true;
+  }
+
+  onCloseModal() {
+    this.openModal = false;
+  }
+
+  getArrays(arr) {
+    console.log(arr);
   }
 
   ngOnDestroy() {
