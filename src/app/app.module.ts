@@ -5,6 +5,7 @@ import {AppComponent} from './app.component';
 import {AuthModule} from './auth/auth.module';
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AuthguardService} from './shared/services/authguard.service';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AuthModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

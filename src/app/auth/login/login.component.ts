@@ -30,8 +30,9 @@ export class LoginComponent implements OnInit {
       .subscribe((params: Params) => {
         if (params['nowCanLogin']) {
           this.showMessage('you can enter', 'success');
-
           this.router.navigateByUrl(this.router.url.substring(0, this.router.url.indexOf('?')));
+        } else if (params['accessDenied']) {
+          this.showMessage('You should enter for work', 'warning');
         }
       });
 
