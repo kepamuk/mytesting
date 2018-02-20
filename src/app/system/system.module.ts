@@ -25,18 +25,14 @@ import {HistoryDetailComponent} from './history-page/history-detail/history-deta
 import {HistoryEventsComponent} from './history-page/history-events/history-events.component';
 import {HistoryFilterComponent} from './history-page/history-filter/history-filter.component';
 import {SharedModule} from '../shared/shared.module';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {BrowserModule} from '@angular/platform-browser';
-import { FilterPipe } from './shared/pipes/filter.pipe';
+import {FilterPipe} from './shared/pipes/filter.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     SystemRoutingModule,
     FormsModule,
-    SharedModule,
-    BrowserAnimationsModule,
-    BrowserModule
+    SharedModule
   ],
   declarations: [
     SystemComponent,

@@ -10,7 +10,7 @@ import {HistoryDetailComponent} from './history-page/history-detail/history-deta
 
 const routes = [
   {
-    path: 'system', component: SystemComponent,
+    path: '', component: SystemComponent,
     children: [
       {path: 'bill', component: BillPageComponent},
       {path: 'history', component: HistoryPageComponent},
