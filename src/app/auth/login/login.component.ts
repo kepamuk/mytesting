@@ -4,11 +4,13 @@ import {UsersService} from '../../shared/services/users.service';
 import {Message} from '../../shared/model/message.model';
 import {LoginService} from '../../shared/services/login.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [fadeStateTrigger]
 })
 export class LoginComponent implements OnInit {
 
